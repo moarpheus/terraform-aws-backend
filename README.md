@@ -1,4 +1,4 @@
-# bucket
+# S3 Backed for terraform state with Lock in the Dynamo DB
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers

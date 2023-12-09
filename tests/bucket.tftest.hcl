@@ -17,4 +17,3 @@ run "create_bucket" {
     error_message = "Incorrect tags"
   }
 }
-

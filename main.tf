@@ -1,10 +1,6 @@
 resource "aws_s3_bucket" "state_bucket" {
   bucket = var.bucket_name
   tags   = var.bucket_tags
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_kms_key" "bucket_kms_key" {
@@ -40,7 +36,7 @@ resource "aws_s3_bucket_public_access_block" "block_public_access" {
 }
 
 resource "aws_dynamodb_table" "terraform-lock" {
-  name           = "terraform_state"
+  name           = var.dynamo_db_name
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "LockID"

@@ -1,6 +1,7 @@
 {
   "name": "terraform-backend-bucket",
   "description": "Terraform module to help setup infra",
+  "private": "true",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moarpheus/terraform-backend-bucket.git"

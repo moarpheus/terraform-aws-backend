@@ -37,13 +37,24 @@ jobs:
         id: test
         run: terraform test
 
+      - name: Check on failures
+        if: steps.test.outcome != 'success'
+        run: exit 1
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
+        if: ${{ steps.test.outcome }}
+        id: setup_node
         with:
           node-version: 'lts/*'
 
       - name: Install dependencies
+        id: install_dependencies
         run: npm ci
+
+      - name: Check on failures
+        if: steps.setup_node.outcome != 'success' || steps.install_dependencies.outcome != 'success'
+        run: exit 1
 
       - name: Release
         env:

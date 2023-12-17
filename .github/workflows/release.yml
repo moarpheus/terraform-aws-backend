@@ -33,12 +33,8 @@ jobs:
         id: fmt
         run: terraform fmt -check
 
-      - name: Terraform validate
-        id: validate
-        run: terraform validate
-
-      - name: Terraform validate
-        id: validate
+      - name: Terraform test
+        id: test
         run: terraform test
 
       - name: Setup Node.js

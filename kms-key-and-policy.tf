@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     condition {
       test     = "StringNotEqualsIfExists"
       variable = "aws:PrincipalArn"
-      values   = "arn:aws:iam::409424458835:role/GitHubAction-AssumeRoleWithAction"
+      values   = ["arn:aws:iam::409424458835:role/GitHubAction-AssumeRoleWithAction"]
     }
     condition {
       test     = "StringNotEqualsIfExists"

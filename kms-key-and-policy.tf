@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     effect = "Allow"
     principals {
       type        = "AWS"
-      identifiers = [data.aws_iam_user.manager.arn]
+      identifiers = [data.aws_iam_user.manager.arn, "arn:aws:iam::409424458835:role/GitHubAction-AssumeRoleWithAction"]
     }
     actions = [
       "kms:*"

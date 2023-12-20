@@ -1,4 +1,4 @@
-# S3 Backed for terraform state with Dynamo DB
+# S3 Backend for terraform state with Dynamo DB
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers

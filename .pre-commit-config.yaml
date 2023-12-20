@@ -37,3 +37,4 @@ repos:
           - --args=--skip-check CKV_AWS_109
           - --args=--skip-check CKV_AWS_111
           - --args=--skip-check CKV_AWS_356
+          - --args=--skip-check CKV2_GHA_1

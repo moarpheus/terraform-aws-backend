@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "state_bucket" {
   tags   = var.bucket_tags
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+resource "aws_s3_bucket_server_side_encryption_configuration" "encryption_config" {
   bucket = aws_s3_bucket.state_bucket.id
 
   rule {
@@ -30,7 +30,7 @@ resource "aws_s3_bucket_public_access_block" "block_public_access" {
   ignore_public_acls      = true
 }
 
-resource "aws_s3_bucket_lifecycle_configuration" "example" { #checkov:skip=CKV_AWS_300
+resource "aws_s3_bucket_lifecycle_configuration" "lifecycle_config" { #checkov:skip=CKV_AWS_300
   bucket = aws_s3_bucket.state_bucket.id
   rule {
     id = "incomplete multipart uploads"

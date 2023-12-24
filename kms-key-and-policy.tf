@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
 
 resource "aws_kms_key" "bucket_kms_key" {
   description             = "This key is used to encrypt state bucket objects"
-  deletion_window_in_days = 10
+  deletion_window_in_days = 7
   enable_key_rotation     = true
   policy                  = data.aws_iam_policy_document.bucket_kms_policy.json
 }

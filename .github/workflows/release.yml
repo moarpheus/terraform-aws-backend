@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 env:
   # Credentials for deployment to AWS
   AWS_REGION: ${{ vars.AWS_REGION }}

@@ -22,6 +22,7 @@ No modules.
 | [aws_s3_bucket_public_access_block.block_public_access](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.encryption_config](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.enable_versioning](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/resources/s3_bucket_versioning) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.bucket_kms_policy](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_user.manager](https://registry.terraform.io/providers/hashicorp/aws/5.29.0/docs/data-sources/iam_user) | data source |
 

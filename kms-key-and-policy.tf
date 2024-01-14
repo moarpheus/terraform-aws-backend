@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     effect = "Allow"
     principals {
       type        = "AWS"
-      identifiers = [data.aws_iam_user.manager.arn, "arn:aws:iam::409424458835:role/GitHubAction-AssumeRoleWithAction"]
+      identifiers = [data.aws_iam_user.manager.arn, "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/github_actions_automation"]
     }
     actions = [
       "kms:*"
@@ -32,7 +32,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     condition {
       test     = "StringNotEqualsIfExists"
       variable = "aws:PrincipalArn"
-      values   = ["arn:aws:iam::409424458835:role/GitHubAction-AssumeRoleWithAction"]
+      values   = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/github_actions_automation"]
     }
     condition {
       test     = "StringNotEqualsIfExists"

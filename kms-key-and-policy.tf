@@ -34,6 +34,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
       identifiers = ["*"]
     }
     actions = [
+      "kms:DescribeKey",
       "kms:Decrypt",
       "kms:GenerateDataKey"
     ]

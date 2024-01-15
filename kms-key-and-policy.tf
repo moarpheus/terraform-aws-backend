@@ -1,13 +1,27 @@
 data "aws_iam_policy_document" "bucket_kms_policy" {
   statement {
-    sid    = "Allow manager to manage key"
+    sid    = "List of principal ARNs to manage bucket key"
     effect = "Allow"
     principals {
       type        = "AWS"
-      identifiers = [data.aws_iam_user.manager.arn, "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/github_actions_automation"]
+      identifiers = var.managing_arns
     }
     actions = [
       "kms:*"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "List of principal ARNs to use bucket key"
+    effect = "Allow"
+    principals {
+      type        = "AWS"
+      identifiers = var.principal_arns
+    }
+    actions = [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
     ]
     resources = ["*"]
   }
@@ -27,12 +41,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     condition {
       test     = "StringNotEqualsIfExists"
       variable = "aws:PrincipalArn"
-      values   = [data.aws_iam_user.manager.arn]
-    }
-    condition {
-      test     = "StringNotEqualsIfExists"
-      variable = "aws:PrincipalArn"
-      values   = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/github_actions_automation"]
+      values   = concat(var.managing_arns, var.principal_arns)
     }
     condition {
       test     = "StringNotEqualsIfExists"

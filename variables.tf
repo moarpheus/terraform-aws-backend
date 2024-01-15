@@ -3,9 +3,21 @@ variable "bucket_tags" {
 }
 
 variable "bucket_name" {
-  type = string
+  description = "S3 Bucket name"
+  type        = string
 }
 
 variable "dynamo_db_name" {
-  type = string
+  description = "Dynamo DB name"
+  type        = string
+}
+
+variable "managing_arns" {
+  description = "Compulsory list of managing principal ARNs to avoid creating un-accessible keys"
+  type        = list(string)
+}
+
+variable "principal_arns" {
+  description = "Compulsory list of principal ARNs that expected to read and write the tf states into the bucket"
+  type        = list(string)
 }

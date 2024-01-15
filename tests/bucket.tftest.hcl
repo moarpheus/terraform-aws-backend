@@ -4,6 +4,8 @@ run "create_bucket" {
     bucket_name = "test-backend-bucket-2023-xyz-me"
     dynamo_db_name = "test-backend_dynamo_db_2023"
     bucket_tags = { "Name": "test-backend-bucket" }
+    managing_arns = ["arn:aws:iam::409424458835:user/moarpheus_ui"]
+    principal_arns = ["arn:aws:iam::409424458835:role/github_actions_automation"]
   }
 
   # Check that the bucket name is correct

@@ -24,7 +24,8 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
       "kms:Decrypt",
       "kms:GenerateDataKey",
       "kms:GetKeyPolicy",
-      "kms:GetKeyRotationStatus"
+      "kms:GetKeyRotationStatus",
+      "kms:ListResourceTags"
     ]
     resources = ["*"]
   }
@@ -41,7 +42,8 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
       "kms:Decrypt",
       "kms:GenerateDataKey",
       "kms:GetKeyPolicy",
-      "kms:GetKeyRotationStatus"
+      "kms:GetKeyRotationStatus",
+      "kms:ListResourceTags"
     ]
     resources = ["*"]
     condition {

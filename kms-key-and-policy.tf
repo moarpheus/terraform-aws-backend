@@ -22,7 +22,8 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     actions = [
       "kms:DescribeKey",
       "kms:Decrypt",
-      "kms:GenerateDataKey"
+      "kms:GenerateDataKey",
+      "kms:GetKeyPolicy"
     ]
     resources = ["*"]
   }
@@ -37,7 +38,8 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
     actions = [
       "kms:DescribeKey",
       "kms:Decrypt",
-      "kms:GenerateDataKey"
+      "kms:GenerateDataKey",
+      "kms:GetKeyPolicy"
     ]
     resources = ["*"]
     condition {

@@ -20,12 +20,13 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
       identifiers = var.principal_arns
     }
     actions = [
+      "kms:CreateAlias",
       "kms:DescribeKey",
       "kms:Decrypt",
       "kms:GenerateDataKey",
       "kms:GetKeyPolicy",
       "kms:GetKeyRotationStatus",
-      "kms:ListResourceTags"
+      "kms:ListResourceTags",
     ]
     resources = ["*"]
   }
@@ -38,6 +39,7 @@ data "aws_iam_policy_document" "bucket_kms_policy" {
       identifiers = ["*"]
     }
     actions = [
+      "kms:CreateAlias",
       "kms:DescribeKey",
       "kms:Decrypt",
       "kms:GenerateDataKey",

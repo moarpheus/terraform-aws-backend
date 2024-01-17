@@ -65,3 +65,8 @@ resource "aws_kms_key" "bucket_kms_key" {
   enable_key_rotation     = true
   policy                  = data.aws_iam_policy_document.bucket_kms_policy.json
 }
+
+resource "aws_kms_alias" "bucket_kms_key_alias" {
+  name          = "alias/${var.bucket_name}-kms-key-alias"
+  target_key_id = aws_kms_key.bucket_kms_key.key_id
+}

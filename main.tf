@@ -43,3 +43,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "lifecycle_config" { #checkov:s
     status = "Enabled"
   }
 }
+
+resource "aws_s3_bucket_ownership_controls" "bucket_ownership" {
+  bucket = aws_s3_bucket.state_bucket.id
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
+}
